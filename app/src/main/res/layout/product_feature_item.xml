@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="attribure"
+            type="com.lmterminiello.melilist.model.Attribute">
+
+        </variable>
+    </data>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="16dp"
+    android:id="@+id/container"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/secondaryTitle"
+        android:text="@{attribure.name}"
+        tools:text="Caracteristica"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primaryTitle"
+        android:textSize="16sp"
+        android:text="@{attribure.valueName}"
+        tools:text="Caracteristica"/>
+
+</LinearLayout>
+
+</layout>

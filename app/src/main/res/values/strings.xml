@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Meli List</string>
+
+    <string name="searchLabel">Busca lo que quieras</string>
+    <string name="errorLabel">No se encontro el articulo buscado</string>
+    <string name="description">Descripcion</string>
+    <string name="freeDelivery">Envio Gratis</string>
+    <string name="photoCount">%1$d/%2$d Fotos</string>
+    <string name="product">Producto</string>
+    <string name="features">Caracteristicas</string>
+</resources>

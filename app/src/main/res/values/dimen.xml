@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dotActiveSize">5dp</dimen>
+    <dimen name="dotInactiveSize">5dp</dimen>
+    <dimen name="dotMediumSize">3dp</dimen>
+    <dimen name="dotSmallSize">2dp</dimen>
+    <dimen name="dotMargin">4dp</dimen>
+</resources>

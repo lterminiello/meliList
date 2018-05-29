@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.lmterminiello.melilist.viewmodel.detail.ProductDetailViewModel" />
+
+        <variable
+            name="finishLoading"
+            type="boolean" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:visibility="@{finishLoading?View.VISIBLE : View.GONE}"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="48dp"
+                android:orientation="vertical">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.lmterminiello.melilist.view.widgets.SliderView
+                        android:id="@+id/sliderImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:background="@color/backgroundGrey"
+                        tools:src="@drawable/ic_arrow_back" />
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:adjustViewBounds="false"
+                        android:background="@drawable/circular_shape"
+                        android:cropToPadding="false"
+                        android:padding="16dp"
+                        android:visibility="@{viewModel.freeShipping? View.VISIBLE:View.GONE}"
+                        app:layout_constraintBottom_toBottomOf="@+id/sliderImage"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.96"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/sliderImage"
+                        app:srcCompat="@drawable/ic_truck" />
+
+                </android.support.constraint.ConstraintLayout>
+
+
+                <TextView
+                    android:id="@+id/titleItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@{viewModel.title}"
+                    android:textColor="@color/primaryTitle"
+                    android:textSize="24sp"
+                    tools:text="@tools:sample/full_names" />
+
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@{viewModel.price}"
+                    android:textColor="@color/priceColor"
+                    android:textSize="28sp"
+                    tools:text="$ 6.000.000.000 " />
+
+
+                <View
+                    android:id="@+id/featureDivider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/backgroundGrey"
+                    android:visibility="@{viewModel.attributes?View.VISIBLE:View.GONE}" />
+
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/featureTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="16dp"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/features"
+                        android:textColor="@color/primaryTitle"
+                        android:textSize="20sp"
+                        android:visibility="@{viewModel.attributes?View.VISIBLE:View.GONE}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/arrowDown"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:visibility="@{viewModel.arrowShow? View.VISIBLE:View.GONE}"
+                        app:layout_constraintBottom_toBottomOf="@+id/featureTitle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.95"
+                        app:layout_constraintStart_toEndOf="@+id/featureTitle"
+                        app:layout_constraintTop_toTopOf="@+id/featureTitle"
+                        app:srcCompat="@drawable/ic_arrow_down_black" />
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/featureList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="@{viewModel.attributes?View.VISIBLE:View.GONE}" />
+
+
+                <View
+                    android:id="@+id/descriptionDivider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/backgroundGrey"
+                    android:visibility="@{viewModel.availabylitiDescription? View.VISIBLE:View.GONE}" />
+
+                <TextView
+                    android:id="@+id/descriptionTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/description"
+                    android:textColor="@color/primaryTitle"
+                    android:textSize="20sp"
+                    android:visibility="@{viewModel.availabylitiDescription? View.VISIBLE:View.GONE}" />
+
+                <TextView
+                    android:id="@+id/descriptionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="48dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@{viewModel.description}"
+                    android:textColor="@color/secondaryTitle"
+                    android:textSize="18sp"
+                    android:visibility="@{viewModel.availabylitiDescription? View.VISIBLE:View.GONE}"
+                    tools:text="los kasd lasd oerooe asd aasd. sd  asd as dlos kasd lasd oerooe asd aasd. sd  asd as dlos kasd lasd oerooe asd aasd. sd  asd as dlos kasd lasd oerooe asd aasd. sd  asd as dlos kasd lasd oerooe asd aasd. sd  asd as d." />
+
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/product"
+                app:titleTextColor="@color/primaryTitle">
+
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
+
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{finishLoading? View.GONE:View.VISIBLE}" />
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pagerContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <com.lmterminiello.melilist.view.widgets.IndicatorDotView
+        android:id="@+id/viewPagerCountDots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp" />
+
+
+    <TextView
+        android:id="@+id/photoCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/rectangular_text_shape"
+        android:paddingBottom="4dp"
+        android:paddingLeft="6dp"
+        android:textColor="@color/white"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        tools:text="1/10 Fotos" />
+
+
+</RelativeLayout>

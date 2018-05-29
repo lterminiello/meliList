@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="indicatorDotView">
+        <attr name="activeColor" format="color" />
+        <attr name="inactiveColor" format="color" />
+        <attr name="activeSize" format="dimension" />
+        <attr name="inactiveSize" format="dimension" />
+        <attr name="mediumSize" format="dimension" />
+        <attr name="smallSize" format="dimension" />
+        <attr name="margin" format="dimension" />
+        <attr name="visibleDots" format="integer" />
+    </declare-styleable>
+</resources>

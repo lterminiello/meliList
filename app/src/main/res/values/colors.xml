@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffdb15</color>
+    <color name="colorPrimaryDark">#F9CC00</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="priceColor">#000000</color>
+    <color name="secondaryTitle">#888888</color>
+    <color name="primaryTitle">#444444</color>
+    <color name="otherText">#a4a4a4</color>
+    <color name="backgroundGrey">#eeeeee</color>
+    <color name="white">#ffffff</color>
+    <color name="grayDot">#99D8D8D8</color>
+    <color name="greenFree">#39b54a</color>
+    <color name="blackOpaque">#99000000</color>
+    <color name="blackTransparent">#00000000</color>
+
+    <color name="greyOpaqueMedium">#66000000</color>
+
+</resources>
