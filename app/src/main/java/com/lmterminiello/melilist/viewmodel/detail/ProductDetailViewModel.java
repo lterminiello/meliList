@@ -29,6 +29,7 @@ public class ProductDetailViewModel extends ViewModel implements DefaultUseCaseC
     private ProductDetailUseCase productDetailUseCase;
     private Context context;
     private MutableLiveData<Boolean> finishLoading = new MutableLiveData<>();
+    private MutableLiveData<Boolean> error = new MutableLiveData<>();
     private MutableLiveData<List<String>> imagersUrl = new MutableLiveData<>();
     private MutableLiveData<List<Attribute>> attributeList = new MutableLiveData<>();
     private Result result;
@@ -64,7 +65,7 @@ public class ProductDetailViewModel extends ViewModel implements DefaultUseCaseC
 
     @Override
     public void onError(String message) {
-
+        error.setValue(true);
     }
     public boolean getAttributes(){
         return !Lists.isNullOrEmpty(result.getAttributes());
@@ -110,5 +111,9 @@ public class ProductDetailViewModel extends ViewModel implements DefaultUseCaseC
 
     public boolean getAvailabylitiDescription(){
         return StringUtils.isNotBlank(result.getDescription());
+    }
+
+    public MutableLiveData<Boolean> getError() {
+        return error;
     }
 }

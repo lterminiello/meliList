@@ -87,6 +87,7 @@ public class ProductDetailFragment extends Fragment {
         viewModel.getFinishLoading().observe(this, finishLoading -> {
             if (finishLoading) {
                 binding.setFinishLoading(finishLoading);
+                binding.setSuccess(finishLoading);
                 binding.setViewModel(viewModel);
             }
         });
@@ -99,17 +100,18 @@ public class ProductDetailFragment extends Fragment {
         viewModel.getAttributeList().observe(this, attributes -> {
             adapterFeature = new FeatureAdapter();
             binding.featureList.setAdapter(adapterFeature);
-            adapterFeature.setAttributes(attributes, new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (adapterFeature.expandOrCollapse()) {
-                        doAnimatedArrowExpand(binding.arrowDown);
-                    } else {
-                        doAnimatedArrowCollapse(binding.arrowDown);
-                    }
+            adapterFeature.setAttributes(attributes, v -> {
+                if (adapterFeature.expandOrCollapse()) {
+                    doAnimatedArrowExpand(binding.arrowDown);
+                } else {
+                    doAnimatedArrowCollapse(binding.arrowDown);
                 }
-
             });
+        });
+
+        viewModel.getError().observe(this, error ->{
+            binding.setFinishLoading(error);
+            binding.errorContainer.setVisibility(View.VISIBLE);
         });
     }
 

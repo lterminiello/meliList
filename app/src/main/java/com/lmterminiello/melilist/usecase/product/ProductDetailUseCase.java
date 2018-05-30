@@ -29,7 +29,7 @@ public class ProductDetailUseCase extends AbstractBaseUseCase<Result>{
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
                             productDetail -> getDescription(productDetail),
-                            throwable -> throwable.printStackTrace()
+                            throwable -> getDefaultUseCaseCallback().onError(throwable.getMessage())
                     );
         }
         return productDetailUseCaseDisposable;
